@@ -59,10 +59,13 @@ ggplot(medal_counts_filt) +
     axis.text = element_text(color = "white"),
     axis.title = element_text(color = "white", size = 12),
     plot.title = element_text(color = "white", hjust = 0.5),
+    plot.caption = element_text(color = "white"),
     legend.position = c(0.8,0.75),
     legend.direction = "horizontal") +
-  xlab("Country") + 
+  xlab("") + 
   ylab("# of Medals") + 
-  ggtitle(paste0("Top medalling countries in the Paralympics (", year_range, ")"))
+  labs(title = paste0("Top medalling countries in the Paralympics (", year_range, ")"),
+       caption = "#TidyTuesday Week 32 | Data from International Paralympic Committee") 
+  
 
 ggsave(here("20210803/Paramlympics_medals.jpg"))                         
