@@ -2,9 +2,10 @@ if(!require(tidyTuesdayR)){
   remotes::install_github("thebioengineer/tidytuesdayR")
 }
 
-library(tidyTuesdayR)
+library(tidytuesdayR)
 library(tidyverse)
 library(purrr)
+library(here)
 
 tt_data <- tt_load("2021-08-03")
 
@@ -64,11 +65,4 @@ ggplot(medal_counts_filt) +
   ylab("# of Medals") + 
   ggtitle(paste0("Top medalling countries in the Paralympics (", year_range, ")"))
 
-,
-# Change legend 
-legend.position = c(0.6, 0.07),
-legend.direction = "horizontal",
-legend.background = element_rect(fill = "black", color = NA),
-legend.key = element_rect(color = "gray", fill = "black")
-) +
-                                
+ggsave(here("20210803/Paramlympics_medals.jpg"))                         
